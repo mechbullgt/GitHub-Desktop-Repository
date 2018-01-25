@@ -1,0 +1,53 @@
+﻿@model Adsroid.Models.AgencyLogin
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Agency Login</h2>
+@using (Html.BeginForm("Login", "AgencyLogin", FormMethod.Post))
+{
+    <fieldset>
+        @Html.AntiForgeryToken()
+        <p class="auto-style8"><a class="btn btn-default" onclick="location.href='@Url.Action("AgencyRegistration","Agency")'">New User, Please Register! &raquo;</a></p>
+        @*@Html.ActionLink("Register Now!", "AgencyRegistration", "Agency", new { }, null)*@  
+        @Html.ValidationSummary(true)
+        
+        @if (@ViewBag.Message != null)
+        {
+            <div style="border: 1px solid red">
+                @ViewBag.Message
+                @ViewBag.LoginMessage
+                @ViewBag.Message1
+                @ViewBag.AgencyId
+                @ViewBag.MessageError
+                @ViewBag.MessageInside
+            </div>
+        }
+        <table>
+            <tr>
+                <td>@Html.LabelFor(a => a.emailid)</td>
+                <td>@Html.TextBoxFor(a => a.emailid)</td>
+                <td>@Html.ValidationMessageFor(a => a.emailid)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(a => a.password)
+                </td>
+                <td>
+                    @Html.PasswordFor(a => a.password)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(a => a.password)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Login" />
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </fieldset>
+}

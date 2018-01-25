@@ -1,0 +1,101 @@
+﻿@model IEnumerable<Adsroid.Models.Campaign>
+
+@{
+    ViewBag.Title = "UpdateCampaigns";
+}
+
+<h2>UpdateCampaigns</h2>
+
+<fieldset>
+    @if (Session["username"] != null)
+    {   <text>
+    <legend>
+        Welcome @Session["username"].ToString()
+        @Html.ActionLink("Logout!", "Logout", "AgencyLogin", new { }, null)
+    </legend>
+    </text>
+    }
+    else
+    {
+        <text>Something Wrong with Session</text>
+        @Html.ActionLink("Please Login!", "Login", "AgencyLogin", new { }, null)
+    }
+    <br />
+</fieldset> 
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.landing_page)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.payout)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kpi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.audience)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.start_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.end_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.budget)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.details)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.landing_page)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.payout)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kpi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.audience)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.start_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.end_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.budget)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.campaign_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.campaign_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.campaign_id })
+        </td>
+    </tr>
+}
+
+</table>

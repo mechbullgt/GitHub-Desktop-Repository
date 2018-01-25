@@ -1,0 +1,97 @@
+﻿
+<head>
+    <style type="text/css">
+        .auto-style6 {
+            width: 285px;
+            text-align: center;
+        }
+
+        .auto-style7 {
+            width: 181px;
+            text-align: center;
+        }
+
+        .auto-style8 {
+            width: 179px;
+            text-align: center;
+        }
+
+        .auto-style12 {
+            width: 136px;
+            text-align: center;
+        }
+
+        .auto-style13 {
+            width: 133px;
+            text-align: center;
+        }
+
+        .auto-style16 {
+            height: 66px;
+        }
+    </style>
+</head>
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h2>Adsroid Dashboard</h2>
+
+<fieldset>
+@if (Session["username"]!= null)
+{   <text>
+    <legend> Welcome @Session["username"].ToString() </legend>
+    @Html.ActionLink("Logout!", "Logout", "AgencyLogin", new { }, null)
+    </text>
+}
+else
+{
+    <text>Something Wrong with Session</text>
+    @Html.ActionLink("Please Login!", "Login", "AgencyLogin", new { }, null)
+}
+<br />
+</fieldset>  
+
+<br />
+<br />
+<table class="auto-style16">
+    <tr>
+    <tr>
+        <td>
+            <p class="auto-style8"><a class="btn btn-default" onclick="location.href='@Url.Action("GetAllCampaigns","Campaign")'">All Campagins&raquo;</a></p>
+        </td>
+    </tr> 
+        <td>
+<p class="auto-style8"><a class="btn btn-default" onclick="location.href='@Url.Action("CreateCampaign","Campaign")'">Create Campaign&raquo;</a></p>
+        </td>
+        </tr>
+    <tr>
+        <td>
+            <p class="auto-style8"><a class="btn btn-default" onclick="location.href='@Url.Action("CreateCampaign","Campaign")'">Upload Creative&raquo;</a></p>
+        </td>
+    </tr>    
+
+    <tr>
+        <td>
+<p class="auto-style8"><a class="btn btn-default" onclick="location.href='@Url.Action("UpdateCampaigns","Campaign")'">Update Campaigns&raquo;</a></p>
+        </td>
+        </tr>    
+    <tr>
+        <td>
+<p class="auto-style8"><a class="btn btn-default" onclick="location.href='@Url.Action("CreateCampaign","Campaign")'">Delete Campaign&raquo;</a></p>
+        </td>
+        </tr>    <tr>
+        <td>
+<p class="auto-style8"><a class="btn btn-default" onclick="location.href='@Url.Action("CreateCampaign","Campaign")'">Generate Campaign Links&raquo;</a></p>
+        </td>
+        </tr>    <tr>
+        <td>
+<p class="auto-style8"><a class="btn btn-default" onclick="location.href='@Url.Action("CreateCampaign","Campaign")'">Generate Reports&raquo;</a></p>
+        </td>
+        </tr>    <tr>
+        <td>
+<p class="auto-style8"><a class="btn btn-default" onclick="location.href='@Url.Action("CreateCampaign","Campaign")'">Reports&raquo;</a></p>
+        </td>
+        </tr>
+</table>
+
